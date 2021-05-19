@@ -15,13 +15,23 @@ import {
             textAlign: 'center',
             borderWidth: 1,
             borderColor: '#888',
+        },
+        operation:{
+            backgroundColor: '#fa8231',
+        },
+        tamDouble:{
+            width: (Dimensions.get('window').width /4) * 2,
         }
     })
 
     export default props => {
+        const stylesButton = [Styles.button];
+        if (props.operation) stylesButton.push(Styles.operation)
+        if (props.tamDouble) stylesButton.push(Styles.tamDouble)
+
         return(
-            <TouchableHighlight onPress={props.onClick} >
-                <Text style={Styles.button}>
+            <TouchableHighlight onPress={()=> props.onClick(props.label)} >
+                <Text style={stylesButton}>
                     {props.label}
                 </Text>
             </TouchableHighlight>

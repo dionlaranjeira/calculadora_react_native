@@ -17,6 +17,10 @@ import {
         displayValue:{
             color: '#fff',
             fontSize: 60,
+        },
+        displayValueP:{
+            color: '#fff',
+            fontSize: 30,
         }
     })
 
@@ -24,7 +28,7 @@ import {
         return(
             <View style={Styles.display} >
                 <Text numberOfLines={1} 
-                style={Styles.displayValue}>
+                style={ props.length> 5 ? Styles.displayValueP : Styles.displayValue}>
                     {props.value}
                 </Text>
             </View>
